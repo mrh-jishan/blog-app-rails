@@ -5,13 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.5.8p224
 
-* System dependencies
+* System dependencies no
 
-* Configuration
+* Configuration no
 
-* Database creation
+* Database creation sqlite3
 
 * Database initialization
 
