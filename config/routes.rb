@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  resources :posts
+  scope :api do
+    scope :v1 do
+      resources :posts
+    end
+  end
+  match '*path', :to => 'application#routing_error', via: :all
 end
