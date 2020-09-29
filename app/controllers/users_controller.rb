@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorized, only: [:auto_login]
+    before_action :authorized, only: [:current_user]
 
   # REGISTER
   def create
@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def auto_login
-    render json: @user
+  def current_user
+    json_response( {user: @user})
   end
 
   private
