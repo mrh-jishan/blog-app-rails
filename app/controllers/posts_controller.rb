@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    skip_before_action :authorized 
     before_action :set_todo, only: [:show, :update, :destroy]
 
     def index
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.permit(:title, :body)
+        params.require(:posts).permit(:title, :body)
     end
 
     def set_todo
