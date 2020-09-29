@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorized, only: [:current_user]
+  before_action :authorized, only: [:current_user]
 
   # REGISTER
   def create
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       json_response({user: @user, token: token})
     else
-      json_response({error: @user.errors.full_messages},:bad_request)
+      json_response({error: @user.errors.full_messages}, :bad_request)
     end
   end
 
@@ -17,14 +17,14 @@ class UsersController < ApplicationController
     @user = User.find_by_username(user_params[:username])
     if @user && @user.authenticate(user_params[:password])
       token = encode_token({user_id: @user.id})
-      json_response( {user: @user, token: token})
+      json_response({user: @user, token: token})
     else
-      json_response( {error: "Invalid username or password"}, :unauthorized)
+      json_response({error: "Invalid username or password"}, :unauthorized)
     end
   end
 
   def current_user
-    json_response( {user: @user})
+    json_response({user: @user})
   end
 
   private
