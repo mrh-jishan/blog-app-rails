@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_134638) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "posts", "users"
